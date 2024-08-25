@@ -1,0 +1,19 @@
+.loadMoreBtn {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.btn {
+  background-color: rgb(216, 227, 255);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  color: rgb(0, 105, 197);
+}
