@@ -1,15 +1,19 @@
 import toast, { Toaster } from "react-hot-toast";
 import s from "./SearchBar.module.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
+import { FormValues, SearchBarProps } from "../App/App.types";
 
-const SearchBar = ({ setQuery }) => {
-  const initialValues = {
+const SearchBar: React.FC<SearchBarProps> = ({ setQuery }) => {
+  const initialValues: FormValues = {
     query: "",
   };
 
   const notify = () => toast.error("You need to enter the value!");
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = (
+    values: FormValues,
+    actions: FormikHelpers<FormValues>
+  ) => {
     if (values.query.trim() === "") {
       notify();
       actions.resetForm();

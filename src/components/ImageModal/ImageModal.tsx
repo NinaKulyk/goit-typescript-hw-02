@@ -1,9 +1,14 @@
+import { ImageModalProps } from "../App/App.types";
 import s from "./ImageModal.module.css";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ isOpen, onRequestClose, image }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  isOpen,
+  onRequestClose,
+  image,
+}) => {
   if (!image) {
     return null;
   }
@@ -17,7 +22,7 @@ const ImageModal = ({ isOpen, onRequestClose, image }) => {
         contentLabel="Image Modal"
         className={s.modal}
       >
-        <img src={image.urls.regular} alt={image.alt_description} />
+        <img src={image.urls.regular} alt={image.alt_description ?? "Image"} />
         <div className={s.descriptionWrapper}>
           <p className={s.description}>{image.alt_description}</p>
         </div>
